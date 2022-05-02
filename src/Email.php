@@ -11,7 +11,7 @@ class Email
 
 	public function __construct(string $subject, string $text, array $options = [])
 	{
-		$config = Config::get('Email', function () {
+		$config = Config::get('email', function () {
 			return [
 				'from' => [
 					'mail' => '',
