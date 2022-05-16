@@ -102,7 +102,10 @@ class Email
 		return Config::get('email', [
 			[
 				'version' => '0.2.0',
-				'migration' => function () {
+				'migration' => function (array $currentConfig, string $env) {
+					if ($currentConfig) // Already existing
+						return $currentConfig;
+
 					if (defined('INCLUDE_PATH') and file_exists(INCLUDE_PATH . 'app/config/Email/config.php')) {
 						// ModEl 3 migration
 						require(INCLUDE_PATH . 'app/config/Email/config.php');
