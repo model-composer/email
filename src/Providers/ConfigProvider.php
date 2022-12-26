@@ -1,4 +1,4 @@
-<?php namespace Model\Email;
+<?php namespace Model\Email\Providers;
 
 use Model\Config\AbstractConfigProvider;
 
