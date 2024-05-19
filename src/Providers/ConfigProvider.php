@@ -47,4 +47,14 @@ class ConfigProvider extends AbstractConfigProvider
 			],
 		];
 	}
+
+	public static function templating(): array
+	{
+		return [
+			'smtp',
+			'port' => 'int',
+			'username',
+			'password',
+		];
+	}
 }
