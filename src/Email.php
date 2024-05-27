@@ -26,7 +26,6 @@ class Email
 		switch ($this->options['type']) {
 			case 'ses':
 				$sesOptions = [
-					'profile' => 'default',
 					'region' => $this->options['region'],
 					'version' => '2010-12-01',
 				];
