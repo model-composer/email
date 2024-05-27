@@ -14,5 +14,8 @@
     "require": {
         "phpmailer/phpmailer": "^6.6",
         "model/config": "^0.7.0"
+    },
+    "suggest": {
+        "aws/aws-sdk-php": "If you want to rely on AWS SES api"
     }
 }

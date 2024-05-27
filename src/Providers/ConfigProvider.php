@@ -29,6 +29,7 @@ class ConfigProvider extends AbstractConfigProvider
 					}
 
 					return [
+						'type' => 'php',
 						'from' => [
 							'mail' => '',
 							'name' => defined('APP_NAME') ? APP_NAME : '',
@@ -45,14 +46,27 @@ class ConfigProvider extends AbstractConfigProvider
 					];
 				},
 			],
+			[
+				'version' => '0.3.0',
+				'migration' => function (array $currentConfig, string $env) {
+					$currentConfig['type'] = $currentConfig['smtp'] ? 'smtp' : 'php';
+					$currentConfig['host'] = $currentConfig['smtp'] ?: null;
+					unset($currentConfig['smtp']);
+					$currentConfig['region'] = null;
+
+					return $currentConfig;
+				},
+			],
 		];
 	}
 
 	public static function templating(): array
 	{
 		return [
-			'smtp',
+			'type',
+			'host',
 			'port' => 'int',
+			'region',
 			'username',
 			'password',
 		];
