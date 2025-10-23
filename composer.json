@@ -12,7 +12,7 @@
         "psr-4": {"Model\\Email\\": "src/"}
     },
     "require": {
-        "phpmailer/phpmailer": "^6.6",
+        "phpmailer/phpmailer": "^7.0",
         "model/config": "^0.7.0"
     },
     "suggest": {
